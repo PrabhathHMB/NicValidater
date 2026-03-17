@@ -43,11 +43,12 @@ public class ReportController {
     private RestTemplate restTemplate;
 
     @SuppressWarnings("null")
-    private List<Map<String, Object>> fetchRecords(String fileName, String gender, String userId, String role) {
+    private List<Map<String, Object>> fetchRecords(String fileName, String gender, Boolean isValid, String userId, String role) {
         String url = nicServiceProperties.getUrl() + "/api/nic/records";
         List<String> params = new ArrayList<>();
         if (fileName != null && !fileName.isEmpty()) params.add("fileName=" + fileName);
         if (gender != null && !gender.isEmpty()) params.add("gender=" + gender);
+        if (isValid != null) params.add("isValid=" + isValid);
         if (!params.isEmpty()) url += "?" + String.join("&", params);
 
         HttpHeaders headers = new HttpHeaders();
@@ -68,10 +69,11 @@ public class ReportController {
             @RequestParam(defaultValue = "pdf") String format,
             @RequestParam(required = false) String fileName,
             @RequestParam(required = false) String gender,
+            @RequestParam(required = false) Boolean isValid,
             @RequestHeader(value = "X-User-ID", required = false) String userId,
             @RequestHeader(value = "X-User-Role", required = false) String role) throws Exception {
 
-        List<Map<String, Object>> records = fetchRecords(fileName, gender, userId, role);
+        List<Map<String, Object>> records = fetchRecords(fileName, gender, isValid, userId, role);
         byte[] data;
         MediaType mediaType;
         String downloadFileName;

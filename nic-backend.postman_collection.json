@@ -1,0 +1,952 @@
+{
+  "info": {
+    "_postman_id": "ba0168f3-1298-4358-92b8-a5417f028b3b",
+    "name": "nic-backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45634755",
+    "_collection_link": "https://go.postman.co/collection/45634755-ba0168f3-1298-4358-92b8-a5417f028b3b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication Service",
+      "item": [
+        {
+          "name": "Register a User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"prabhath\",\n  \"password\": \"121212\",\n  \"email\": \"bhanukaprabhath801@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiVVNFUiIsImVtYWlsIjoiYmhhbnVrYXByYWJoYXRoODAxQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicHJhYmhhdGgiLCJzdWIiOiI5IiwiaWF0IjoxNzczMjkzMjM5LCJleHAiOjE3NzMzNzk2Mzl9.mrjQn04z9hSw-fyNmbq-UCQzkE72x5V1eJMJ3WDWqJo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"prabhath\",\n  \"password\": \"121212\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export Report",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiVVNFUiIsImVtYWlsIjoiYmhhbnVrYXByYWJoYXRoODAxQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicHJhYmhhdGgiLCJzdWIiOiI5IiwiaWF0IjoxNzczMjkzMjM5LCJleHAiOjE3NzMzNzk2Mzl9.mrjQn04z9hSw-fyNmbq-UCQzkE72x5V1eJMJ3WDWqJo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/export?format=pdf",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "pdf"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Log Out",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiVVNFUiIsImVtYWlsIjoiYmhhbnVrYXByYWJoYXRoODAxQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicHJhYmhhdGgiLCJzdWIiOiI5IiwiaWF0IjoxNzczMjkzMjM5LCJleHAiOjE3NzMzNzk2Mzl9.mrjQn04z9hSw-fyNmbq-UCQzkE72x5V1eJMJ3WDWqJo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Admin",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"bhanu\",\n  \"password\": \"121212\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "all users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMzNzMyOTYsImV4cCI6MTc3MzQ1OTY5Nn0.8jhCPMVKQRStrb_ZZnnj1wILSZSiArK_3jK5qfJ27yI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Admin",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"prabha\",\n  \"password\": \"121212\",\n  \"email\": \"bhanukaprabhath8@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/create-admin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "create-admin"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "NIC Service",
+      "item": [
+        {
+          "name": "Filter Records",
+          "item": [
+            {
+              "name": "Get All Records",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/nic/records",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "nic",
+                    "records"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "by Gender",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/records?gender=FEMALE",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "records"
+                  ],
+                  "query": [
+                    {
+                      "key": "gender",
+                      "value": "FEMALE"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "by File ID",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/nic/records/file/1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "nic",
+                    "records",
+                    "file",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Validate Single NIC",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nic\": \"199212345678\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/nic/validate-single",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "nic",
+                "validate-single"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Upload CSV Files",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "39752b9a-3934-431e-8d1a-4ec4063a4dc9",
+                  "src": "postman-cloud:///1f11dd5a-df3c-4670-b63a-a8ab5c40d8f7"
+                },
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "91be101d-d908-40ee-ba04-26d62ca5f8e6",
+                  "src": "postman-cloud:///1f11dd5b-7c8d-4d70-a583-6c1e0d933e6f"
+                },
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "3fa990d4-9bbb-4bd7-970f-5f9b98b421db",
+                  "src": "postman-cloud:///1f11dd5b-f743-46a0-9bf6-8b2a55469b2d"
+                },
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "20a75d45-3266-4bb8-9f14-b5cddd1e3603",
+                  "src": "postman-cloud:///1f11dd5c-7875-4250-a3b9-ba687c386659"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/files/upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "files",
+                "upload"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate Batch NICs",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nicNumbers\": [\"199012345678\", \"901234567V\"],\n  \"fileName\": \"test_batch.csv\",\n  \"fileId\": 25\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/nic/validate-batch",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "nic",
+                "validate-batch"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get system-wide NIC statistics",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/nic/stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "nic",
+                "stats"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "NIC service Health check",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/nic/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "nic",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get system-wide NIC statistics",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/nic/stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "nic",
+                "stats"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "File Service",
+      "item": [
+        {
+          "name": "Upload CSV files",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "242e960f-5f27-4610-b72f-8501cc93ea2a",
+                  "src": "postman-cloud:///1f11dd5a-df3c-4670-b63a-a8ab5c40d8f7"
+                },
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "7b2bdf95-1cde-4fc0-9deb-14ac994fde81",
+                  "src": "postman-cloud:///1f11dd5b-7c8d-4d70-a583-6c1e0d933e6f"
+                },
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "9c447160-9f1c-43be-9561-011078aa7cb6",
+                  "src": "postman-cloud:///1f11dd5b-f743-46a0-9bf6-8b2a55469b2d"
+                },
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "66663bbd-1f03-48a0-b21d-0b881bbb8d37",
+                  "src": "postman-cloud:///1f11dd5c-7875-4250-a3b9-ba687c386659"
+                },
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "a5527f35-5b1a-4375-8387-9e6d47773c7a",
+                  "src": "postman-cloud:///1f11de69-3107-4950-af51-4c8b914472ca"
+                },
+                {
+                  "key": "",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "23fb852b-9a4f-4405-a9db-b00c38ec5de1",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/files/upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "files",
+                "upload"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get list of uploaded files",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "files"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "File Service health check",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}\t/api/files/health",
+              "host": [
+                "{{baseUrl}}\t"
+              ],
+              "path": [
+                "api",
+                "files",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard Service",
+      "item": [
+        {
+          "name": "Combined stats and files list",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dashboard Service health check",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Report Service",
+      "item": [
+        {
+          "name": "Export Report Excel",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/export?format=excel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "excel"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export Report pdf",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/export?format=pdf",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "pdf"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export Report csv",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/export?format=csv",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "csv"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "report-service health",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "report-service health",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImJoYW51a2FAZ21haWwuY29tIiwidXNlcm5hbWUiOiJiaGFudSIsInN1YiI6IjYiLCJpYXQiOjE3NzMyOTUyMjUsImV4cCI6MTc3MzM4MTYyNX0.NqVN2PnXSNEYaytuIv0_DPeOxtSzK0xs99X9fwU9ihY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

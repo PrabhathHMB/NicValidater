@@ -1,6 +1,4 @@
-#!/bin/bash
-# MobiOs NIC Validator — Startup Script
-# Starts all services in the correct order
+
 
 set -e
 ROOT="$(cd "$(dirname "$0")" && pwd)"
@@ -72,7 +70,7 @@ echo "  📊 Eureka Dashboard:  http://localhost:8761"
 echo "  🔀 API Gateway:       http://localhost:8080"
 echo "  🌐 React App:         http://localhost:5173"
 echo ""
-echo "  🔑 Default Login: admin / admin123"
+echo "  🔑 Default Login: admin / 789789"
+echo "  🔑 Default Login: bhanu / 123123"
 echo ""
-echo "Press Ctrl+C to stop all services"
 wait

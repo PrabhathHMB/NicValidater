@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { FileDown, FileText, Table, Sheet } from 'lucide-react';
@@ -42,9 +42,26 @@ const formats = [
 export default function ReportPage() {
     const [gender, setGender] = useState('');
     const [fileName, setFileName] = useState('');
+    const [status, setStatus] = useState(''); // '' (all), 'true', 'false'
+    const [filenames, setFilenames] = useState([]);
     const [downloading, setDownloading] = useState('');
     const [previewStats, setPreviewStats] = useState(null);
     const [loadingPreview, setLoadingPreview] = useState(false);
+
+    useEffect(() => {
+        fetchFilenames();
+    }, []);
+
+    const fetchFilenames = async () => {
+        try {
+            const res = await axios.get('/api/nic/stats');
+            if (res.data && res.data.byFile) {
+                setFilenames(res.data.byFile.map(f => f[0]));
+            }
+        } catch (err) {
+            console.error('Failed to fetch filenames', err);
+        }
+    };
 
     const loadPreview = async () => {
         setLoadingPreview(true);
@@ -52,6 +69,7 @@ export default function ReportPage() {
             const params = {};
             if (gender) params.gender = gender;
             if (fileName) params.fileName = fileName;
+            if (status) params.isValid = status;
             const res = await axios.get('/api/nic/records', { params });
             const data = res.data || [];
             setPreviewStats({
@@ -73,6 +91,7 @@ export default function ReportPage() {
             const params = { format: format.id };
             if (gender) params.gender = gender;
             if (fileName) params.fileName = fileName;
+            if (status) params.isValid = status;
 
             const res = await axios.get('/api/reports/export', {
                 params,
@@ -117,12 +136,31 @@ export default function ReportPage() {
 
                     <div className="form-group" style={{ marginBottom: 0 }}>
                         <label className="form-label">File Name</label>
-                        <input
-                            className="form-input"
-                            placeholder="Enter file name (optional)"
+                        <select
+                            className="form-input filter-select"
                             value={fileName}
                             onChange={e => setFileName(e.target.value)}
-                        />
+                            style={{ paddingTop: '11px', paddingBottom: '11px' }}
+                        >
+                            <option value="">All Files</option>
+                            {filenames.map(f => (
+                                <option key={f} value={f}>{f}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="form-group" style={{ marginBottom: 0 }}>
+                        <label className="form-label">Status</label>
+                        <select
+                            className="form-input filter-select"
+                            value={status}
+                            onChange={e => setStatus(e.target.value)}
+                            style={{ paddingTop: '11px', paddingBottom: '11px' }}
+                        >
+                            <option value="">All Statuses</option>
+                            <option value="true">Valid Only</option>
+                            <option value="false">Invalid Only</option>
+                        </select>
                     </div>
                 </div>
 

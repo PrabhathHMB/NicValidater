@@ -1,8 +1,4 @@
-#!/bin/bash
-# Script to initialize the mobiO database
-# Optimized for Mac (XAMPP/Brew/Standard)
 
-# Get the directory where the script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SCHEMA_FILE="$SCRIPT_DIR/database/schema.sql"
 DB_NAME="mobiO"
@@ -14,7 +10,7 @@ if [ ! -f "$SCHEMA_FILE" ]; then
     exit 1
 fi
 
-# Define possible mysql binary paths
+
 MYSQL_PATHS=(
     "/Applications/XAMPP/bin/mysql"
     "/usr/local/mysql/bin/mysql"
