@@ -1,0 +1,10 @@
+lk/mobios/nicservice/controller/NicController.class
+lk/mobios/nicservice/validator/NewNicValidator.class
+lk/mobios/nicservice/repository/NicRecordRepository.class
+lk/mobios/nicservice/dto/ValidationResult.class
+lk/mobios/nicservice/dto/BatchValidationRequest.class
+lk/mobios/nicservice/NicServiceApplication.class
+lk/mobios/nicservice/entity/NicRecord.class
+lk/mobios/nicservice/validator/OldNicValidator.class
+lk/mobios/nicservice/validator/NicValidator.class
+lk/mobios/nicservice/service/NicService.class

@@ -1,0 +1,10 @@
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/NicServiceApplication.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/controller/NicController.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/dto/BatchValidationRequest.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/dto/ValidationResult.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/entity/NicRecord.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/repository/NicRecordRepository.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/service/NicService.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/validator/NewNicValidator.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/validator/NicValidator.java
+/Users/bhanuka/Desktop/mobiOs/backend/nic-service/src/main/java/lk/mobios/nicservice/validator/OldNicValidator.java

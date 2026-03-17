@@ -1,0 +1,8 @@
+lk/mobios/fileservice/repository/CsvFileRepository.class
+lk/mobios/fileservice/config/NicServiceProperties.class
+lk/mobios/fileservice/entity/CsvFile.class
+lk/mobios/fileservice/service/FileService$1.class
+lk/mobios/fileservice/FileServiceApplication.class
+lk/mobios/fileservice/config/AppConfig.class
+lk/mobios/fileservice/service/FileService.class
+lk/mobios/fileservice/controller/FileController.class
