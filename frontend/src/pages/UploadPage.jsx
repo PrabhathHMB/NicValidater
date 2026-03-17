@@ -14,6 +14,7 @@ export default function UploadPage() {
     const [uploading, setUploading] = useState(false);
     const [progress, setProgress] = useState(0);
     const [results, setResults] = useState(null);
+    const [resultFilter, setResultFilter] = useState('all'); // 'all', 'valid', 'invalid'
 
     const onDrop = useCallback((accepted) => {
         const csvFiles = accepted.filter(f => f.name.toLowerCase().endsWith('.csv') || f.type === 'text/csv');
@@ -251,11 +252,16 @@ export default function UploadPage() {
                     <div style={{ marginTop: '24px' }}>
                         <button
                             className="btn btn-primary"
-                            onClick={() => navigate('/records?valid=true')}
+                            onClick={() => {
+                                let query = '';
+                                if (resultFilter === 'valid') query = '?valid=true';
+                                else if (resultFilter === 'invalid') query = '?valid=false';
+                                navigate('/records' + query);
+                            }}
                             style={{ padding: '12px 24px', borderRadius: '12px' }}
                         >
                             <ExternalLink size={18} style={{ marginRight: '8px' }} />
-                            View Validated Records in Detail
+                            View Records in Detail
                         </button>
                     </div>
                 </div>
@@ -295,13 +301,28 @@ export default function UploadPage() {
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', gap: '8px' }}>
-                            <div className="badge badge-success" style={{ padding: '6px 12px', fontSize: '12px' }}>
-                                {r.validCount} Valid
-                            </div>
-                            <div className="badge badge-danger" style={{ padding: '6px 12px', fontSize: '12px' }}>
-                                {r.invalidCount} Invalid
-                            </div>
+                        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                            <button 
+                                className={`btn ${resultFilter === 'all' ? 'btn-primary' : 'btn-secondary'}`}
+                                onClick={() => setResultFilter('all')}
+                                style={{ padding: '4px 12px', fontSize: '11px', height: '28px' }}
+                            >
+                                All ({r.recordCount})
+                            </button>
+                            <button 
+                                className={`btn ${resultFilter === 'valid' ? 'btn-success' : 'btn-secondary'}`}
+                                onClick={() => setResultFilter('valid')}
+                                style={{ padding: '4px 12px', fontSize: '11px', height: '28px', background: resultFilter === 'valid' ? 'var(--accent-green)' : '' }}
+                            >
+                                Valid ({r.validCount})
+                            </button>
+                            <button 
+                                className={`btn ${resultFilter === 'invalid' ? 'btn-danger' : 'btn-secondary'}`}
+                                onClick={() => setResultFilter('invalid')}
+                                style={{ padding: '4px 12px', fontSize: '11px', height: '28px', background: resultFilter === 'invalid' ? 'var(--accent-red)' : '' }}
+                            >
+                                Invalid ({r.invalidCount})
+                            </button>
                         </div>
                     </div>
 
@@ -316,7 +337,13 @@ export default function UploadPage() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {(r.records || []).slice(0, 50).map((rec, j) => (
+                                {(r.records || [])
+                                    .filter(rec => {
+                                        if (resultFilter === 'valid') return rec.isValid;
+                                        if (resultFilter === 'invalid') return !rec.isValid;
+                                        return true;
+                                    })
+                                    .slice(0, 50).map((rec, j) => (
                                     <tr key={j} style={{ transition: 'background 0.2s' }}>
                                         <td style={{ padding: '16px', fontFamily: '"Outfit", monospace', fontWeight: 600, letterSpacing: '0.5px' }}>
                                             {rec.nicNumber}

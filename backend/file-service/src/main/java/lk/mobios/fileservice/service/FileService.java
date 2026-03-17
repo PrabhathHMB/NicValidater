@@ -83,8 +83,8 @@ public class FileService {
             for (Map<String, Object> r : validatedRecords) {
                 if (Boolean.TRUE.equals(r.get("isValid"))) {
                     validCount++;
-                    storedRecords.add(r);
                 }
+                storedRecords.add(r);
             }
         }
 
