@@ -38,14 +38,7 @@ To run this project locally, ensure you have the following installed:
    cd /path/to/mobiOs
    ```
 
-2. **Initialize Database:**
-   (If required, execute the DB setup script)
-   ```bash
-   chmod +x setup_db.sh
-   ./setup_db.sh
-   ```
-
-3. **Run the Application:**
+2. **Run the Application:**
    The project includes a convenient startup script that builds the backend modules, starts all Spring Boot microservices, and launches the React frontend.
    ```bash
    chmod +x start.sh
@@ -53,7 +46,7 @@ To run this project locally, ensure you have the following installed:
    ```
    *Note: The first run may take a few minutes as Maven downloads dependencies and builds the project.*
 
-4. **Access the Services:**
+3. **Access the Services:**
    Once the script finishes starting all services:
    - **Frontend App**: [http://localhost:5173](http://localhost:5173)
    - **Gateway API**: [http://localhost:8080](http://localhost:8080)
